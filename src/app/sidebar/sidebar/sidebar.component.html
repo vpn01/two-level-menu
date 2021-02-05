@@ -1,10 +1,10 @@
 <div class="navigation-container">
-  <div class="level1">
+  <div class="level1" (mouseenter)="toggleMain(1)">
     <div class="top-align">
     <ul>
       <li *ngFor="let item of navItems">
-        <a [@toggleWidth]="{value: menuState.first_level_expanded?true:false, params:{tWidth:menuState.firstLevelWidth}}" (@toggleWidth.start)="onAnimationEvent($event)"
-        (@toggleWidth.done)="onAnimationEvent($event)" href="{{item.route?item.route:''}}" (click)="toggleLevelTwo(item,2)">
+        <a [routerLink]="item.route?item.route:''" [@toggleWidth]="{value: menuState.first_level_expanded?true:false, params:{tWidth:menuState.firstLevelWidth}}" (@toggleWidth.start)="onAnimationEvent($event)"
+        (@toggleWidth.done)="onAnimationEvent($event)" href="{{item.route?item.route:''}}" (click)="toggleLevelTwo(item,2)" >
           <mat-icon>{{item.iconName}}</mat-icon>
           <span class="text" [ngClass]="{'d-none':!menuState.firstLevelShowFullWidth}">{{item.displayName}}</span>
         </a>
@@ -23,46 +23,17 @@
   <div class="level2" [@setPosition]="{value: menuState.second_level_expanded?true:false, params:{left:menuState.secondLevelPosition}}" (@setPosition.start)="onAnimationEvent($event)"
   (@setPosition.done)="onAnimationEvent($event)" >
     <ul *ngIf="menuState.secondLevelMenu != null">
+    
       <li *ngFor="let item of menuState.secondLevelMenu">
-        <a  href="{{item.route?item.route:''}}" >
+        
+        <app-menu-item [item]="item"></app-menu-item>
+        <!-- <ng-template #elseBlock>
+        <a  href="{{item.route?item.route:''}}" (click)="disable()">
           <mat-icon>{{item.iconName}}</mat-icon>
           <span class="text">{{item.displayName}}</span>
         </a>
-  
+      </ng-template> -->
       </li>
     </ul>
   </div>
 </div>
-
-<!-- <div class="row  bottom-border bg-primary">
-    <div class="col-md-12">
-      <div class="user-pic mx-auto d-block">
-        <img src="assets/images/user.jpg" />
-        <div class="status"></div>
-      </div>
-    </div>
-    <div class="col-md-12">
-      <h4 class="text-center color-white">Steven Marcus</h4>
-    </div>
-  </div>
-
-  <mat-nav-list>
-    <app-menu-item *ngFor="let item of navItems" [item]="item"></app-menu-item>
-  </mat-nav-list> -->
-
-
-
-<!-- <button mat-flat-button color="primary">
-          <mat-expansion-panel >
-            <mat-expansion-panel-header>
-            <mat-panel-title>
-            DashBoard
-            </mat-panel-title>
-            <mat-panel-description>
-            Currently I am 
-            </mat-panel-description>
-            </mat-expansion-panel-header>
-            <p>I'm visible because I am open</p>
-            </mat-expansion-panel>  
-        
-          </button> -->

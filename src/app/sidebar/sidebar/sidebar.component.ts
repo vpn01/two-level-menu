@@ -80,7 +80,24 @@ export class SidebarComponent implements OnInit, AfterViewInit {
         {
           displayName: 'Submenu 2',
           iconName: 'computer',
-          route: ''
+          route: '',
+          children:[{
+            displayName: 'Sub 2',
+            iconName: 'router',
+            route: ''
+          },
+          {
+            displayName: 'Submenu 2',
+            iconName: 'router',
+            route: ''
+          },
+          {
+            displayName: 'Submenu 2',
+            iconName: 'router',
+            route: ''
+          },
+
+        ]
         },
         {
           displayName: 'Submenu 2',
@@ -110,6 +127,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
   constructor(private navService: NavService) { }
 
   ngOnInit(): void {
+
   }
 
   ngAfterViewInit() {
@@ -121,7 +139,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     
   }
 
-  toggleMain()
+  toggleMain(val = 0)
   {
    
     if (!this.menuState.first_level_expanded)
@@ -132,8 +150,12 @@ export class SidebarComponent implements OnInit, AfterViewInit {
 
     }
     else {
-      this.menuState.firstLevelWidth  = '30px';
-      this.menuState.first_level_expanded = false;
+      if (val == 0)
+      {
+        this.menuState.firstLevelWidth  = '30px';
+        this.menuState.first_level_expanded = false;
+      }
+      
     }
   }
 
@@ -143,7 +165,7 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     {
       
       this.menuState.secondLevelMenu = menuItem.children;
-      
+      console.log(this.menuState.secondLevelMenu);
      // this.menuState.secondLevelWidth = 65+this.setWidth(menuItem.children)+'px';
       this.setAnimationPositions(state);
       
@@ -180,6 +202,11 @@ export class SidebarComponent implements OnInit, AfterViewInit {
     }
     // if (event.eventPhase=="start")
   }
+
+  disable()
+  {
+    return false;
+  }  
 
   setAnimationPositions(type)
   {

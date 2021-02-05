@@ -126,3 +126,98 @@ mat-sidenav {
   .d-none {
     display: none !important;
   }
+.navigation-container .level1 ul li {
+     border-bottom: 1px solid #8a127a;
+ }
+
+ .navigation-container .level2 ul li {
+    border-bottom: 1px solid #400a38;
+}
+.navigation-container #expand-main {
+    border-top: 1px solid #400a38;
+}
+
+
+#expand-main {
+    display: flex;
+    align-self: end;
+}
+
+  .navigation-container ul {
+    display: block;
+    list-style: none;
+    padding: 0 10px;
+    margin: 0;
+}
+.navigation-container .level1 ul li a{
+  border-bottom: 1px solid #8a127a;
+}
+
+.navigation-container .level2 ul li a {
+ border-bottom: 1px solid #400a38;
+}
+.navigation-container #expand-main {
+ border-top: 1px solid #400a38;
+}
+
+
+#expand-main {
+ display: flex;
+ align-self: end;
+}
+
+  .navigation-container ul li a {
+    display: flex;
+    padding: 8px 10px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+    
+ }
+ .navigation-container ul li a:hover {
+  text-decoration: none;
+}
+
+
+.navigation-container ul li a span,.navigation-container ul li a mat-icon{
+  display: inline-flex;
+  align-items: center;
+  
+}
+.navigation-container ul li a span {
+  padding-left: 3px;
+}
+
+/* .navigation-container .level1 ul li a {
+ padding: 5px;
+} */
+
+.navigation-container ul li a:hover {
+ opacity: 0.7;
+ cursor: pointer;
+}
+
+
+.expandable {
+  position: relative;
+  height: auto;
+  padding-left: 15px;
+
+}
+
+.expand-icon {
+  position: absolute;
+  right: 10px !important;
+  transform-origin: center;
+ 
+}
+
+.h0 {
+  height: 0px;
+}
+
+.expand-menu {
+  position: relative;
+  width: 100%;
+overflow: hidden;
+}
