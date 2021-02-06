@@ -57,10 +57,10 @@ export class MenuItemComponent implements OnInit,AfterViewInit {
   }
 
   onItemSelected(item: NavItem) {
-    if (!item.children || !item.children.length) {
+    if (!item.links || !item.links.length) {
   
     }
-    if (item.children && item.children.length) {
+    if (item.links && item.links.length) {
      
       this.expanded = !this.expanded;
       if (this.expanded)
