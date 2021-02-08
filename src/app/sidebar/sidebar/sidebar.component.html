@@ -1,12 +1,12 @@
 <div class="navigation-container">
-  <div class="level1" (mouseenter)="toggleMain(1)">
+  <div class="level1" (mouseenter)="toggleMain(1)" (mouseleave)="toggleMain(0)" [@toggleWidth]="{value: menuState.first_level_expanded, params:{tWidth:menuState.firstLevelWidth}}" (@toggleWidth.start)="onAnimationEvent($event)"
+        (@toggleWidth.done)="onAnimationEvent($event)">
     <div class="top-align">
     <ul>
       <li *ngFor="let item of navItems">
-        <a [routerLink]="[item.path?item.path:'']" [@toggleWidth]="{value: menuState.first_level_expanded?true:false, params:{tWidth:menuState.firstLevelWidth}}" (@toggleWidth.start)="onAnimationEvent($event)"
-        (@toggleWidth.done)="onAnimationEvent($event)" (click)="toggleLevelTwo(item,2)" >
+        <a [routerLink]="[item.path?item.path:'']"  (click)="toggleLevelTwo(item,2,$event)" >
           <mat-icon *ngIf="item.icon">{{item.icon}}</mat-icon>
-          <span class="text" [ngClass]="{'d-none':!menuState.firstLevelShowFullWidth}">{{item.text}}</span>
+          <span class="text" *ngIf="menuState.showText" [ngClass]="{'d-none':!menuState.firstLevelShowFullWidth}">{{item.text}}</span>
         </a>
   
       </li>
@@ -20,7 +20,7 @@
     </ul>
   </div>
   </div>
-  <div class="level2" [@setPosition]="{value: menuState.second_level_expanded?true:false, params:{left:menuState.secondLevelPosition}}" (@setPosition.start)="onAnimationEvent($event)"
+  <div class="level2"  [@setPosition]="{value: menuState.runAnim? menuState.second_level_expanded : '2', params:{left:menuState.secondLevelPosition}}" (@setPosition.start)="onAnimationEvent($event)"
   (@setPosition.done)="onAnimationEvent($event)" >
     <ul *ngIf="menuState.secondLevelMenu != null">
     

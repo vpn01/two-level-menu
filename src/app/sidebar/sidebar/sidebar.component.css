@@ -6,7 +6,7 @@
 position: relative;
 display: flex;
 height: 100%;
-min-width: 65px;
+
 
 }
 
@@ -17,8 +17,14 @@ min-width: 65px;
     height: 100%;
   z-index: 10;
   flex-direction: column;
+  padding: 0px;
+  overflow: hidden;
 
 }
+
+
+
+
 
 .navigation-container .level2 {
 display: flex;
@@ -38,6 +44,8 @@ align-self: flex-start;
     display: flex;
     align-self: flex-end;
 }
+
+
 
 
 
